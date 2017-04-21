@@ -1,0 +1,25 @@
+{
+  "name": "joni-test-project",
+  "version": "0.1.0",
+  "description": "",
+  "author" : "Ditza Cohen Tene",
+  "dependencies": {
+    "@types/angular": "^1.6.14",
+    "@types/angular-route": "^1.3.3",
+    "@types/angular-ui-router": "^1.1.36",
+    "@types/node": "^7.0.12"
+  },
+  "devDependencies": {
+    "typescript": "^2.2.2",
+    "bower": "^1.8.0",
+    "http-server": "^0.9.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall":"node_modules/.bin/bower install && node_modules/.bin/tsc && sass content/css/style.scss content/css/style.css",
+    "start":"node_modules/.bin/http-server -o --cors"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

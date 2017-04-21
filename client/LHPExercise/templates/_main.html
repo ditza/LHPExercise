@@ -1,0 +1,26 @@
+<div ng-controller="MainCtrl">
+
+    <h3 ng-show="titleMain">Contacts List</h3>
+
+	<div class="container-style">
+
+		<ul class="ul-style">
+		<li>
+			<span class="title-style">name</span>
+			<span class="title-style">email</span>
+			</li>
+			<li ng-repeat="contact in contacts track by $index">
+			<span>{{contact.name}}</span>
+			<span>{{contact.email}}</span>
+			</li>
+		</ul><br>
+		<button type="button" ng-click="mc.goToAddPage()">Add</button>
+
+	</div>
+
+</div>
+
+
+
+
+
