@@ -6,18 +6,6 @@ module LHPExercise {
         public static $inject =["$state","$scope", "$rootScope"];
         constructor(private state:any ,private scope: ng.IScope, public rootScope:any) {
             this.scope.emailFormat = /^[a-z0-9._]+[a-z0-9._]+@[a-z0-9._]+\.[a-z.]{2,5}$/;
-
-            if (typeof(Storage) !== "undefined") {
-                var contactsJsonString = localStorage.getItem("contacts");
-
-                if (null == contactsJsonString) {
-                    rootScope.contacts = [];
-
-                } else {
-                    rootScope.contacts = JSON.parse(contactsJsonString);
-                }
-            }
-
             scope.titleAdd = true;
             scope.titleMain = false;
 

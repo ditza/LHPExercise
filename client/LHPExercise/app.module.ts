@@ -5,24 +5,28 @@
 
 module LHPExercise{
 	"use strict";    
-	export function setup($rootScope : any) {
-		return (text : string) => {
-			$rootScope.dizza = "1.08";
+	export function setup(rootScope : any) {
+			rootScope.dizza = "1.08";
+			if (typeof(Storage) !== "undefined") {
+				var contactsJsonString = localStorage.getItem("contacts");
 
-    /**
-     * Use angular $stateChangeSuccess to go back to last page when required
-     */
-     $rootScope.$on('$stateChangeSuccess', function (event:any, to:any, toParams:any, from:any, fromParams:any) {
-     	$rootScope.$previousState = from;
-     });
+				if (null == contactsJsonString) {
+					rootScope.contacts = [];
 
- }
-}
-
-
-angular
-	.module("LHPExercise", ["ui.router"])
-	.run(setup);
+				} else {
+					rootScope.contacts = JSON.parse(contactsJsonString);
+				}
+			}
+	}
 
 	setup.$inject=["$rootScope"];
+
+	angular
+	.module("LHPExercise", ["ui.router"])
+	// .run(["$rootScope", "$timeout", function ($rootScope, $timeout) {
+	// 	alert(" I am here");
+	// 	}]);
+	.run(setup);
+
+	
 }
